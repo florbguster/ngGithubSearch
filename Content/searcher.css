@@ -1,0 +1,13 @@
+.repos th{
+	cursor : pointer;
+	background-color: #777;
+}
+
+.ng-enter{
+	transition: all .4s ease-in;
+}
+
+.ng-enter-active{
+	transition: all .4s ease-in;
+	
+}
