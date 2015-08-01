@@ -11,3 +11,8 @@
 	transition: all .4s ease-in;
 	
 }
+
+a {
+	color: #08f;
+	font-weight: bold;
+}
