@@ -1,6 +1,11 @@
 .repos th{
 	cursor : pointer;
-	background-color: #777;
+	background-color: #f44;
+	color: #fff;
+}
+
+.repos th:hover, .repos th:active {
+	background-color: #f66;
 }
 
 .ng-enter{
@@ -12,7 +17,6 @@
 	
 }
 
-a {
+td a{
 	color: #08f;
-	font-weight: bold;
 }

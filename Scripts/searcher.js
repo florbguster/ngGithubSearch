@@ -19,6 +19,7 @@
 				$scope.direction = true;
 				$scope.sortOrder = "name";
 				$scope.sort = function(column) {
+					column.active;
 					if ($scope.sortOrder === column) {
 						$scope.direction = !$scope.direction;
 					} else {
