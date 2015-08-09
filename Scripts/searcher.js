@@ -3,23 +3,24 @@
 	
 	var UserController = function($scope, githubUserService ){
 
+				var mapUserDetails = function(data){
+					$scope.user = data;
+					githubUserService.getUserRepositories( data )
+									 .then( mapRepository );
+					$scope.error = null;
+				};
+				
 				var mapRepository = function(data){
 					$scope.repos = data;
 				};
 
-				var errorMessage = function(reason){
-					$scope.error = "User not found."
-				};
-
-				var mapUserDetails = function(data){
-					$scope.user = data;
-					githubUserService.getUserRepositories( $scope.user )
-									 .then( mapRepository );
+				var onError = function(reason){
+					$scope.error = "User not found.";
 				};
 			
 				$scope.search = function(username){
 					githubUserService.getUserDetails(username)
-									 .then( mapUserDetails, errorMessage);
+									 .then( mapUserDetails, onError);
 				};
 			
 				$scope.direction = true;

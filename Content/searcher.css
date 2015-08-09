@@ -15,3 +15,7 @@ td a{
 tr:nth-child(even){
 	background-color: #555;
 }
+
+.notice{
+margin: 1em auto 1em auto;
+}
