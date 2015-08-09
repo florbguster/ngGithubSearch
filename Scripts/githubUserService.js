@@ -3,10 +3,12 @@
 	var githubUserService = function($http){
 		
 		var getUserDetails = function(username){
-			return $http.get("https://api.github.com/users/" + username )
-						.then(function(response){
-							return response.data;
-						});
+			if(username){
+				return $http.get("https://api.github.com/users/" + username )
+							.then(function(response){
+								return response.data;
+							});
+			}
 		};
 		
 		var getUserRepositories = function(user){

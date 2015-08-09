@@ -13,8 +13,8 @@
 
 				var mapUserDetails = function(data){
 					$scope.user = data;
-					githubUserService.getUserRepositories( data )
-									 .then( mapRepository, errorMessage );
+					githubUserService.getUserRepositories( $scope.user )
+									 .then( mapRepository );
 				};
 			
 				$scope.search = function(username){
