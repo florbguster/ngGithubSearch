@@ -7,74 +7,76 @@
 	<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" >
 	<link href="../Content/searcher.css" rel="stylesheet" /> 
 </head>
-<body ng-controller="FormController">
-<div class="navbar navbar-default navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <a href="#" class="navbar-brand">GitHub User Search <i class="fa fa-magic"></i></a>
-          <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-        </div>
-        <div class="navbar-collapse collapse" id="navbar-main">
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="http://www.GitHub.com">{ <0> <0> }</a></li>
-          </ul>
-        </div>
+<body ng-controller="UserController">
+	<div class="navbar navbar-default navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<a href="#" class="navbar-brand">GitHub User Search <i class="fa fa-magic"></i></a>
+				<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+			</div>
+			<div class="navbar-collapse collapse" id="navbar-main">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="http://www.GitHub.com">{ <0> <0> }</a></li>
+				</ul>
+			</div>
       </div>
     </div>
 	<br /><br />
-	<section class="container page-header">
-		<form id="requestForm" ng-submit="search(username)" >
-			<label>User Name</label>
-			<input type="text" name="firstName" ng-model="username" />
-			<input type="submit" value="Search" />
-		</form>
-		
-		<table ng-if="user" class="table page-header">
-			<tr>
-				<th>Avatar</th>
-				<th>Username</th>
-				<th>Created</th>
-				<th>Updated</th>
-			<tr>
-			<tr>
-				<td><img style="width:100px; height: 100px;" ng-src="{{user.avatar_url}}" alt="{{user.name}}"></td>
-				<td>{{user.login}}</td>
-				<td>{{user.created_at}}</td>
-				<td>{{user.updated_at}}</td>
-			<tr>
-		</table>
+		<section class="container page-header">
+			<form id="requestForm" ng-submit="search(username)" >
+				<label>User Name</label>
+				<input type="text" name="firstName" ng-model="username" />
+				<input type="submit" value="Search" />
+			</form>
+			
+			<table ng-if="user" class="table page-header">
+				<tr>
+					<th>Avatar</th>
+					<th>Username</th>
+					<th>Created</th>
+					<th>Updated</th>
+				<tr>
+				<tr>
+					<td><img style="width:100px; height: 100px;" ng-src="{{user.avatar_url}}" alt="{{user.name}}"></td>
+					<td>{{user.login}}</td>
+					<td>{{user.created_at}}</td>
+					<td>{{user.updated_at}}</td>
+				<tr>
+			</table>
 
-		<table ng-if="repos" class="table page-header repos">
-			<tr>
-				<th ng-click="sort('name')"> 
-					Name <i class="icon-sort icon-small"></i>
-				</th>
-				<th ng-click="sort('description')">
-					Description <i class="icon-sort icon-small"></i>
-				</th>
-				<th ng-click="sort('-stargazers_count')">
-					Stars<i class="icon-sort"></i>
-				</th>
-				<th ng-click="sort('language')">
-					Language<i class="icon-sort"></i>
-				</th>
-			<tr>
-			<tr ng-repeat = "repo in repos | orderBy:sortOrder:direction">
-				<td><a href="https://github.com/{{user.login}}/{{repo.name}}">{{repo.name}}</a></td>
-				<td>{{repo.description}}</td>
-				<td>{{repo.stargazers_count}}</td>
-				<td>{{repo.language}}</td>
-			<tr>
-		</table>
-	</section>		
-	<script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-</body>
-	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-animate.js"></script>
-	<script src="../Scripts/searcher.js"></script>
+			<table ng-if="repos" class="table page-header repos">
+				<tr>
+					<th ng-click="sort('name')"> 
+						Name <i class="icon-sort icon-small"></i>
+					</th>
+					<th ng-click="sort('description')">
+						Description <i class="icon-sort icon-small"></i>
+					</th>
+					<th ng-click="sort('-stargazers_count')">
+						Stars<i class="icon-sort"></i>
+					</th>
+					<th ng-click="sort('language')">
+						Language<i class="icon-sort"></i>
+					</th>
+				<tr>
+				<tr ng-repeat = "repo in repos | orderBy:sortOrder:direction">
+					<td><a href="https://github.com/{{user.login}}/{{repo.name}}">{{repo.name}}</a></td>
+					<td>{{repo.description}}</td>
+					<td>{{repo.stargazers_count}}</td>
+					<td>{{repo.language}}</td>
+				<tr>
+			</table>
+			
+		</section>	
+	
+		<script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+		<script src="../Scripts/searcher.js"></script>
+		<script src="../Scripts/githubUserService.js"></script>
+	</body>
 </html>

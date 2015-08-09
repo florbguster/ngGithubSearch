@@ -1,19 +1,25 @@
 (function() {
-	angular.module("searcher", ['ngAnimate'])
-		   .controller( "FormController", function($scope, $http){
-				var getUserDetails = function(response){
-					$scope.user = response.data;
-					$http.get( $scope.user.repos_url )
-						 .then( getRepository );
+	var app = angular.module("searcher", []);
+	
+	var UserController = function($scope, githubUserService ){
+
+				var mapRepository = function(data){
+					$scope.repos = data;
 				};
-					
-				var getRepository = function(response){
-					$scope.repos = response.data;
+
+				var errorMessage = function(reason){
+					$scope.error = "User not found."
 				};
-					
+
+				var mapUserDetails = function(data){
+					$scope.user = data;
+					githubUserService.getUserRepositories( data )
+									 .then( mapRepository, errorMessage );
+				};
+			
 				$scope.search = function(username){
-					$http.get("https://api.github.com/users/" + username)
-						 .then(getUserDetails);
+					githubUserService.getUserDetails(username)
+									 .then( mapUserDetails, errorMessage);
 				};
 			
 				$scope.direction = true;
@@ -27,5 +33,8 @@
 						$scope.direction = true;
 					}
 				};
-			});
+	};
+	
+	app.controller( "UserController", UserController);
+	
 }());

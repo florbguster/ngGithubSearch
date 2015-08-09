@@ -5,18 +5,13 @@
 }
 
 .repos th:hover, .repos th:active {
-	background-color: #f66;
-}
-
-.ng-enter{
-	transition: all .4s ease-in;
-}
-
-.ng-enter-active{
-	transition: all .4s ease-in;
-	
+	background-color: #a22;
 }
 
 td a{
-	color: #08f;
+	color: #0ac18a;
+}
+
+tr:nth-child(even){
+	background-color: #555;
 }
