@@ -1,0 +1,39 @@
+			<table ng-if="user" class="table page-header">
+				<tr>
+					<th>Avatar</th>
+					<th>Username</th>
+					<th>Created</th>
+					<th>Updated</th>
+				<tr>
+				<tr>
+					<td><img style="width:100px; height: 100px;" ng-src="{{user.avatar_url}}" alt="{{user.name}}"></td>
+					<td>{{user.login}}</td>
+					<td>{{user.created_at | date:"MM/dd/yyyy 'at' h:mma"}}</td>
+					<td>{{user.updated_at | date:"MM/dd/yyyy 'at' h:mma"}}</td>
+				<tr>
+			</table>
+
+			<table ng-if="repos" class="table page-header repos">
+				<tr>
+					<th ng-click="sort('name')"> 
+						Name <i class="icon-sort icon-small"></i>
+					</th>
+					<th ng-click="sort('description')">
+						Description <i class="icon-sort icon-small"></i>
+					</th>
+					<th ng-click="sort('-stargazers_count')">
+						Stars<i class="icon-sort"></i>
+					</th>
+					<th ng-click="sort('language')">
+						Language<i class="icon-sort"></i>
+					</th>
+				<tr>
+				<tr ng-repeat = "repo in repos | orderBy:sortOrder:direction">
+					<td><a href="https://github.com/{{user.login}}/{{repo.name}}">{{repo.name}}</a></td>
+					<td>{{repo.description}}</td>
+					<td>{{repo.stargazers_count}}</td>
+					<td>{{repo.language}}</td>
+				<tr>
+			</table>
+			
+		</div>	

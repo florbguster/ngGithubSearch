@@ -1,0 +1,16 @@
+﻿<div class="container page-header" ng-controller="SearchController">
+	<form id="requestForm" ng-submit="search(username)" >
+		<label>User Name</label>
+		<input type="text" name="firstName" ng-model="username" />
+		<input type="submit" value="Search" />
+		<label style="padding-left: .3em; color: #f44;">{{ error }}</label>
+	</form>
+			
+	<div class="notice"> 
+		Note : Each IP is limited to make 60 requests per hour. 
+		<a href="https://developer.github.com/v3/#rate-limiting" target="_blank" >Why!!!?</a>
+	</div>
+
+    <div ng-view > </div>
+
+</div>

@@ -1,0 +1,42 @@
+﻿
+<!DOCTYPE html>
+
+<html ng-app="searcher">
+<head>
+	<link href="../Content/bootstrap.min.css" rel="stylesheet">
+	<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" >
+	<link href="../Content/searcher.css" rel="stylesheet" /> 
+	
+	<script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	<script src="https://code.angularjs.org/1.4.5/angular.min.js"></script>
+	<script src="https://code.angularjs.org/1.4.5/angular-route.min.js"></script>
+	<script src="~/Scripts/app.js"></script>
+    <script src="~/Scripts/Controllers/SearchController.js"></script>
+    <script src="~/Scripts/Controllers/UserController.js"></script>
+    <script src="~/Scripts/Controllers/RepoController.js"></script>
+    <script src="~/Scripts/Services/GithubSvc.js"></script>
+</head>
+	<body>
+		<div class="navbar navbar-default navbar-fixed-top">
+			<div class="container">
+				<div class="navbar-header">
+					<a href="#" class="navbar-brand">GitHub User Search <i class="fa fa-magic"></i></a>
+					<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+				</div>
+				<div class="navbar-collapse collapse" id="navbar-main">
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="http://www.GitHub.com">{ <0> <0> }</a></li>
+					</ul>
+				</div>
+		  </div>
+		</div>
+		<br /><br />
+		
+        @RenderBody()
+	</body>
+</html>
